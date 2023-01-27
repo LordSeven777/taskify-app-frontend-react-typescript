@@ -19,6 +19,7 @@
     "paths": {
       "@components/*": ["components/*"],
       "@configs/*": ["configs/*"],
+      "@customTypes/*": ["types/*"],
       "@features/*": ["features/*"],
       "@helpers/*": ["helpers/*"],
       "@hooks/*": ["hooks/*"],
