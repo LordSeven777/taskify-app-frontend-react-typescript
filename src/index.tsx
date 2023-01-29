@@ -7,13 +7,18 @@ import { Provider } from 'react-redux';
 // Redux store
 import store from './store';
 
+// Components
+import IconsImports from '@components/containers/IconsImports';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <IconsImports>
+        <App />
+      </IconsImports>
     </Provider>
   </React.StrictMode>
 );
