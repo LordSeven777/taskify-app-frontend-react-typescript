@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import { RouterProvider } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
+
+// The router
+import router from '@pages/router';
 
 // Redux store
 import store from './store';
@@ -17,7 +20,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <IconsImports>
-        <App />
+        <RouterProvider router={router} />
       </IconsImports>
     </Provider>
   </React.StrictMode>
