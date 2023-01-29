@@ -5,13 +5,18 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
 
-// Illustration
-import { ReactComponent as LoginIllustration } from '../../assets/images/undraw_sign_in_re_o58h.svg';
+// Hooks
+import usePageTitle from '@hooks/usePageTitle';
 
 // Components
 import AuthPageLayout from '@components/parts/AuthPageLayout';
 
+// Illustration
+import { ReactComponent as LoginIllustration } from '../../assets/images/undraw_sign_in_re_o58h.svg';
+
 export default function SignInPage() {
+  usePageTitle('Sign in');
+
   return (
     <div id="sign-in-page">
       <AuthPageLayout>
