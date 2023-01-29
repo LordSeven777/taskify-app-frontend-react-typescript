@@ -15,9 +15,9 @@ export default function App() {
       style={{ backgroundImage: `url("${tasksBg}")` }}
     >
       <Navbar />
-      <div className="container flex-fill">
+      <AppContainer className="container flex-fill">
         <Outlet />
-      </div>
+      </AppContainer>
     </AppWrapper>
   );
 }
@@ -39,5 +39,16 @@ const AppWrapper = styled.div`
     height: 100%;
     background-color: #ccc;
     opacity: 0.6;
+    z-index: 0;
   }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+`;
+
+const AppContainer = styled.div`
+  background-color: #fff;
+  box-shadow: 0 2px 6px #888;
 `;
