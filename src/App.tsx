@@ -25,7 +25,7 @@ export default function App() {
 /* STYLES **********************************************************/
 
 const AppWrapper = styled.div`
-  background-color: red;
+  background-attachment: fixed;
   min-height: 100vh;
   height: auto;
   position: relative;

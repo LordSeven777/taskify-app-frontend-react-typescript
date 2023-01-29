@@ -10,7 +10,7 @@ export default function AppNavbar() {
       expand="lg"
       sticky="top"
       className="shadow-sm"
-      style={{ zIndex: '10' }}
+      style={{ zIndex: '10', position: 'sticky' }}
     >
       <div className="container">
         <Navbar.Brand as={Link} to="/">
