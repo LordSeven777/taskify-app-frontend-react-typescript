@@ -9,7 +9,7 @@ module.exports = {
       '@contexts': path.resolve(__dirname, 'src/contexts'),
       '@customTypes': path.resolve(__dirname, 'src/types'),
       '@features': path.resolve(__dirname, 'src/features'),
-      '@hooks': path.resolve(__dirname, 'src/helpers'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@redux': path.resolve(__dirname, 'src/redux'),
       '@services': path.resolve(__dirname, 'src/services'),
