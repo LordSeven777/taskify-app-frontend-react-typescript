@@ -7,6 +7,7 @@ import tasksBg from './assets/images/92330418-to-do-list-seamless-pattern-backgr
 
 // Components
 import Navbar from '@components/parts/Navbar';
+import FeedbacksToasts from '@components/parts/FeedbacksToasts';
 
 export default function App() {
   return (
@@ -18,6 +19,8 @@ export default function App() {
       <AppContainer className="container flex-fill">
         <Outlet />
       </AppContainer>
+      <div id="feedback-portal"></div>
+      <FeedbacksToasts />
     </AppWrapper>
   );
 }
