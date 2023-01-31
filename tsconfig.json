@@ -26,8 +26,8 @@
       "@helpers/*": ["helpers/*"],
       "@hooks/*": ["hooks/*"],
       "@pages/*": ["pages/*"],
-      "@redux/*": ["redux/*"],
       "@services/*": ["services/*"],
+      "@slices/*": ["slices/*"],
       "@utils/*": ["utils/*"],
       "@/*": ["*"]
     }
