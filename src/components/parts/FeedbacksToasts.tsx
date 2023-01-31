@@ -12,7 +12,6 @@ export default function FeedbacksToasts() {
   const dispatch = useDispatch();
 
   function handleClose(reason: FeedbackReason, id?: string | number) {
-    console.log('Deleted');
     dispatch(
       deleteFeedback({
         id: id as string | number,
