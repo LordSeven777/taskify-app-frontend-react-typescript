@@ -2,9 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 
 // Reducers
 import api from '@services/api';
+import feedbacksReducer from './slices/feedbacks';
 
 const store = configureStore({
   reducer: {
+    feedbacks: feedbacksReducer,
     [api.reducerPath]: api.reducer,
   },
 });
