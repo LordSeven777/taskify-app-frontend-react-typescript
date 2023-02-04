@@ -1,6 +1,6 @@
 // Types
-import { UserCreationAttributes } from '@customTypes/user';
-import type { AuthResult } from '@customTypes/auth';
+import type { UserCreationAttributes } from '@customTypes/user';
+import type { AuthResult, LoginCredentials } from '@customTypes/auth';
 
 // Base api
 import api from './api';
@@ -14,8 +14,15 @@ const authApi = api.injectEndpoints({
         body: data,
       }),
     }),
+    login: build.mutation<AuthResult, LoginCredentials>({
+      query: (data) => ({
+        url: 'login',
+        method: 'POST',
+        body: data,
+      }),
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useRegisterUserMutation } = authApi;
+export const { useRegisterUserMutation, useLoginMutation } = authApi;

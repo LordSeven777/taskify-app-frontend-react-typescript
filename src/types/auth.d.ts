@@ -6,3 +6,8 @@ export interface AuthResult {
   refreshToken?: string;
   csrfToken: string;
 }
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
