@@ -17,7 +17,7 @@ interface Props {
   onBlur: FocusEventHandler<FormControlElement>;
 }
 
-export default function RegistrationField(props: Props) {
+export default function FloatingLabelField(props: Props) {
   const {
     type = 'text',
     label,

@@ -34,7 +34,7 @@ import { useRegisterUserMutation } from '@services/auth';
 // Components
 import AuthPageLayout from '@components/parts/AuthPageLayout';
 import FeedbackToast from '@components/shared/FeedbackToast';
-import RegistrationField from './RegistrationField';
+import FloatingLabelField from '@components/shared/FloatingLabelField';
 
 // Illustration
 import { ReactComponent as IllustrationSVG } from '../../assets/images/undraw_login_re_4vu2.svg';
@@ -199,7 +199,7 @@ export default function RegisterPage() {
               <em>Fields marked with * are required</em>
             </p>
             <Form noValidate onSubmit={handleSubmit}>
-              <RegistrationField
+              <FloatingLabelField
                 label="First name *"
                 placeholder="First name"
                 name="firstName"
@@ -210,7 +210,7 @@ export default function RegisterPage() {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <RegistrationField
+              <FloatingLabelField
                 label="Last name *"
                 placeholder="Last name"
                 name="lastName"
@@ -221,7 +221,7 @@ export default function RegisterPage() {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <RegistrationField
+              <FloatingLabelField
                 label="Username *"
                 placeholder="Username"
                 name="username"
@@ -232,7 +232,7 @@ export default function RegisterPage() {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <RegistrationField
+              <FloatingLabelField
                 type="email"
                 label="E-mail *"
                 placeholder="E-mail address"
@@ -244,7 +244,7 @@ export default function RegisterPage() {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <RegistrationField
+              <FloatingLabelField
                 type="password"
                 label="Password *"
                 placeholder="Password"
@@ -256,7 +256,7 @@ export default function RegisterPage() {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <RegistrationField
+              <FloatingLabelField
                 type="password"
                 label="Password confirmation *"
                 placeholder="Confirm your password"
