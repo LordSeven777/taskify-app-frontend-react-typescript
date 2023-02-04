@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import Toast from 'react-bootstrap/Toast';
@@ -27,9 +27,9 @@ export default function FeedbackToast({
 }: FeedbackToastProps) {
   const navigate = useNavigate();
 
-  const portalRef = useRef<HTMLElement>(
-    document.getElementById('feedback-portal')
-  );
+  const portalRef = useRef<HTMLElement>();
+
+  const [domIsReady, setDomIsReady] = useState(false);
 
   let icon: IconProp;
   let color: string;
@@ -51,6 +51,13 @@ export default function FeedbackToast({
       color = 'primary';
       break;
   }
+
+  useEffect(() => {
+    portalRef.current = document.getElementById(
+      'feedback-portal'
+    ) as HTMLElement;
+    setDomIsReady(true);
+  }, []);
 
   const toast = (
     <Toast
@@ -108,10 +115,12 @@ export default function FeedbackToast({
       style.top = 'calc(3.5rem + 0.5rem)';
       style.right = '1rem';
     }
-    return createPortal(
-      <div style={style}>{toast}</div>,
-      portalRef.current as HTMLElement
-    );
+    return domIsReady
+      ? createPortal(
+          <div style={style}>{toast}</div>,
+          portalRef.current as HTMLElement
+        )
+      : null;
   }
 
   return toast;
