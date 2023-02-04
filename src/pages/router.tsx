@@ -7,6 +7,7 @@ import App from '@/App';
 import HomePage from './Home/HomePage';
 import SignInPage from './SignIn/SignInPage';
 import RegisterPage from './Register/RegisterPage';
+import TasksPage from './Tasks/TasksPage';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <RegisterPage />,
+      },
+      {
+        path: '/tasks',
+        element: <TasksPage />,
       },
     ],
   },
