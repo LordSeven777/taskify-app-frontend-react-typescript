@@ -33,7 +33,7 @@ export default function FloatingLabelField(props: Props) {
 
   const id = useId();
 
-  const isInvalid = !!errorMessage && isTouched;
+  const isInvalid = errorMessage !== undefined && isTouched;
 
   return (
     <FloatingLabel controlId={id} label={label} className="mb-3">
