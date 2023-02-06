@@ -3,6 +3,9 @@ import { createBrowserRouter } from 'react-router-dom';
 // Layouts
 import App from '@/App';
 
+// Containers
+import ProtectedRoute from '@components/containers/ProtectedRoute';
+
 // Pages
 import HomePage from './Home/HomePage';
 import SignInPage from './SignIn/SignInPage';
@@ -19,15 +22,27 @@ const router = createBrowserRouter([
       },
       {
         path: '/login',
-        element: <SignInPage />,
+        element: (
+          <ProtectedRoute reverse={true}>
+            <SignInPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/register',
-        element: <RegisterPage />,
+        element: (
+          <ProtectedRoute reverse={true}>
+            <RegisterPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/tasks',
-        element: <TasksPage />,
+        element: (
+          <ProtectedRoute>
+            <TasksPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
