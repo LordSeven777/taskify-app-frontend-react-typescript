@@ -19,7 +19,7 @@ import { isFetchBaseQueryError } from '@helpers/rtk';
 // Hooks
 import usePageTitle from '@hooks/usePageTitle';
 
-// Slices
+// Actions
 import { setAuth } from '@slices/auth';
 import { addFeedback } from '@slices/feedbacks';
 

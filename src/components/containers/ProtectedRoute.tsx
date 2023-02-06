@@ -2,7 +2,7 @@ import { useRef, useEffect, PropsWithChildren } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-// Types
+// Store
 import type { RootState } from '@/store';
 
 // Actions

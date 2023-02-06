@@ -24,7 +24,7 @@ import { formatApiValidationErrors } from '@helpers/formatters';
 // Hooks
 import usePageTitle from '@hooks/usePageTitle';
 
-// Slices
+// Actions
 import { setAuth } from '@slices/auth';
 import { addFeedback } from '@slices/feedbacks';
 
