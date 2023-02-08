@@ -12,6 +12,8 @@ import store from './store';
 
 // Components
 import IconsImports from '@components/containers/IconsImports';
+import InitialAuthentication from '@components/containers/InitialAuthentication';
+import InitialLoader from '@components/parts/InitialLoader';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,7 +22,11 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <IconsImports>
-        <RouterProvider router={router} />
+        <InitialAuthentication>
+          {(isDone: boolean) =>
+            isDone ? <RouterProvider router={router} /> : <InitialLoader />
+          }
+        </InitialAuthentication>
       </IconsImports>
     </Provider>
   </React.StrictMode>
