@@ -27,6 +27,12 @@ const authApi = api.injectEndpoints({
         method: 'POST',
       }),
     }),
+    logout: build.mutation<void, void>({
+      query: () => ({
+        url: 'logout',
+        method: 'DELETE',
+      }),
+    }),
   }),
   overrideExisting: false,
 });
@@ -35,4 +41,5 @@ export const {
   useRegisterUserMutation,
   useLoginMutation,
   useTokenAuthenticationMutation,
+  useLogoutMutation,
 } = authApi;
