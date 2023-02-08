@@ -26,7 +26,7 @@ export default function ProtectedRoute({
   const isAuthorized = reverse ? !isAuthenticated : isAuthenticated;
 
   useEffect(() => {
-    if (renderCountRef.current === 0) {
+    if (renderCountRef.current === 0 && !isAuthorized) {
       const message = reverse
         ? 'You cannot visit that page while being logged in'
         : 'You need to sign in in order to visit that page';
@@ -46,7 +46,7 @@ export default function ProtectedRoute({
     }
     renderCountRef.current++;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isAuthorized]);
 
   return isAuthorized ? <>{children}</> : null;
 }
