@@ -21,8 +21,18 @@ const authApi = api.injectEndpoints({
         body: data,
       }),
     }),
+    tokenAuthentication: build.mutation<AuthResult, void>({
+      query: () => ({
+        url: 'token-auth',
+        method: 'POST',
+      }),
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useRegisterUserMutation, useLoginMutation } = authApi;
+export const {
+  useRegisterUserMutation,
+  useLoginMutation,
+  useTokenAuthenticationMutation,
+} = authApi;
