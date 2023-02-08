@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Assets
-import tasksBg from './assets/images/92330418-to-do-list-seamless-pattern-background-business-flat-vector-illustration-checklist-task-list-symbol-.webp';
-
 // Components
 import Navbar from '@components/parts/Navbar';
 import FeedbacksToasts from '@components/parts/FeedbacksToasts';
+
+// Assets
+import tasksBg from './assets/images/92330418-to-do-list-seamless-pattern-background-business-flat-vector-illustration-checklist-task-list-symbol-.webp';
 
 export default function App() {
   return (
