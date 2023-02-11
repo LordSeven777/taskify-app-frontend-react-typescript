@@ -7,6 +7,7 @@ import Navbar from '@components/parts/Navbar';
 import FeedbacksToasts from '@components/parts/FeedbacksToasts';
 
 // Assets
+import './assets/css/style.css';
 import tasksBg from './assets/images/92330418-to-do-list-seamless-pattern-background-business-flat-vector-illustration-checklist-task-list-symbol-.webp';
 
 export default function App() {
@@ -16,7 +17,7 @@ export default function App() {
       style={{ backgroundImage: `url("${tasksBg}")` }}
     >
       <Navbar />
-      <AppContainer className="container flex-fill">
+      <AppContainer className="container flex-fill pt-4 pb-5">
         <Outlet />
       </AppContainer>
       <div id="feedback-portal"></div>
