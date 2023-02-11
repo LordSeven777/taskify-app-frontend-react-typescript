@@ -23,8 +23,11 @@ export default function AppNavbar() {
         variant="dark"
         expand="lg"
         sticky="top"
-        className="shadow-sm"
-        style={{ zIndex: '10', position: 'sticky' }}
+        style={{
+          zIndex: '10',
+          position: 'sticky',
+          boxShadow: '0 2px 5px #999',
+        }}
       >
         <div className="container">
           <Navbar.Brand as={Link} to="/">
