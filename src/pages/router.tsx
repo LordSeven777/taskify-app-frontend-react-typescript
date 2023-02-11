@@ -5,6 +5,7 @@ import App from '@/App';
 
 // Containers
 import ProtectedRoute from '@components/containers/ProtectedRoute';
+import TasksContainer from './Tasks/TasksContainer';
 
 // Pages
 import HomePage from './Home/HomePage';
@@ -40,9 +41,15 @@ const router = createBrowserRouter([
         path: '/tasks',
         element: (
           <ProtectedRoute>
-            <TasksPage />
+            <TasksContainer />
           </ProtectedRoute>
         ),
+        children: [
+          {
+            index: true,
+            element: <TasksPage />,
+          },
+        ],
       },
     ],
   },
