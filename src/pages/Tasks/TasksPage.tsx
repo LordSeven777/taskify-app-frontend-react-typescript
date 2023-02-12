@@ -1,14 +1,32 @@
+import { useSelector } from 'react-redux';
 import { useMemo } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+// Types
+import type { UserAttributes } from '@customTypes/user';
+
 // Utils
 import { getStrictDateISO } from '@utils/dates';
+
+// Store
+import type { RootState } from '@/store';
+
+// Services
+import { useGetLabelsQuery } from '@services/labels';
+
+// Hooks
+import usePageTitle from '@hooks/usePageTitle';
 
 // Query params keys
 const DATE_QUERY = 'date';
 
 export default function TasksPage() {
+  const { authUser } = useSelector((state: RootState) => state.auth);
+
+  // The labels are fetched in the tasks page although they are not directly used here
+  useGetLabelsQuery((authUser as UserAttributes)._id);
+
   const [searchParams] = useSearchParams();
 
   const dateParam = searchParams.get(DATE_QUERY);
@@ -31,6 +49,8 @@ export default function TasksPage() {
   // Getting the ISO date for the next date
   date.setDate(date.getDate() + 2);
   const nextDateISO = getStrictDateISO(date);
+
+  usePageTitle('Tasks');
 
   return (
     <div>
