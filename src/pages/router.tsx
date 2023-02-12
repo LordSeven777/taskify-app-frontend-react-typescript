@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 // Layouts
 import App from '@/App';
@@ -11,6 +11,7 @@ import HomePage from './Home/HomePage';
 import SignInPage from './SignIn/SignInPage';
 import RegisterPage from './Register/RegisterPage';
 import TasksPage from './Tasks/TasksPage';
+import LabelsPage from './Tasks/LabelsPage';
 
 const router = createBrowserRouter([
   {
@@ -40,9 +41,19 @@ const router = createBrowserRouter([
         path: '/tasks',
         element: (
           <ProtectedRoute>
-            <TasksPage />
+            <Outlet />
           </ProtectedRoute>
         ),
+        children: [
+          {
+            index: true,
+            element: <TasksPage />,
+          },
+          {
+            path: 'labels',
+            element: <LabelsPage />,
+          },
+        ],
       },
     ],
   },
