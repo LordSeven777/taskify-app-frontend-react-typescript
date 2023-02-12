@@ -10,6 +10,8 @@ import {
   faAngleLeft,
   faAngleRight,
   faArrowLeft,
+  faTimes,
+  faPenSquare,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -23,7 +25,9 @@ library.add(
   faTags,
   faAngleLeft,
   faAngleRight,
-  faArrowLeft
+  faArrowLeft,
+  faTimes,
+  faPenSquare
 );
 
 const IconsImports: FC<PropsWithChildren<{}>> = ({ children }) => {
