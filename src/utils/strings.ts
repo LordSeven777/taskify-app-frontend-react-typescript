@@ -24,3 +24,25 @@ export function isStrongPassword(pwd: string, minLength: number) {
     hasSpecialChars.test(pwd)
   );
 }
+
+/**
+ * Transforms a word into its plural form
+ *
+ * @param singular The singular word to pluralize
+ * @param countOrIsPlural A boolean value or count number that determines if the singular should be pluralized
+ * @param suffix The plural suffix of the word
+ * @returns The eventual pluralized output
+ */
+export function pluralize(
+  singular: string,
+  countOrIsPlural: number | boolean,
+  suffix = 's'
+): string {
+  if (
+    (typeof countOrIsPlural === 'number' && countOrIsPlural <= 1) ||
+    (typeof countOrIsPlural === 'boolean' && !countOrIsPlural)
+  ) {
+    return singular;
+  }
+  return singular + suffix;
+}
