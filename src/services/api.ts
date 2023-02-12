@@ -22,6 +22,7 @@ const api = createApi({
     },
   }),
   endpoints: () => ({}),
+  tagTypes: ['Labels'],
 });
 
 export default api;

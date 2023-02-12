@@ -8,6 +8,7 @@ const labelsApi = api.injectEndpoints({
   endpoints: (build) => ({
     getLabels: build.query<LabelAttributes[], string>({
       query: (userId) => `users/${userId}/labels`,
+      providesTags: () => [{ type: 'Labels' }],
     }),
   }),
 });
