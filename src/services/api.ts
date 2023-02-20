@@ -22,7 +22,7 @@ const api = createApi({
     },
   }),
   endpoints: () => ({}),
-  tagTypes: ['Labels'],
+  tagTypes: ['Labels', 'Tasks'],
 });
 
 export default api;
