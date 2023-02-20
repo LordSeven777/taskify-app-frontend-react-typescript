@@ -12,6 +12,12 @@ import {
   faArrowLeft,
   faTimes,
   faPenSquare,
+  faCalendar,
+  faClock,
+  faEye,
+  faTrash,
+  faPen,
+  faTasks,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -27,7 +33,13 @@ library.add(
   faAngleRight,
   faArrowLeft,
   faTimes,
-  faPenSquare
+  faPenSquare,
+  faCalendar,
+  faClock,
+  faEye,
+  faTrash,
+  faPen,
+  faTasks
 );
 
 const IconsImports: FC<PropsWithChildren<{}>> = ({ children }) => {
