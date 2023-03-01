@@ -14,3 +14,8 @@ export type LabelCreationAttributes = Omit<
 
 export type LabelUpdateMutationPayload = LabelCreationAttributes &
   Pick<LabelAttributes, '_id'>;
+
+export interface LabelCheckOption {
+  checked: boolean;
+  label: LabelAttributes;
+}

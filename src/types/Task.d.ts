@@ -18,3 +18,10 @@ export type PartialTaskAttributes = Omit<
   TaskAttributes,
   'description' | 'checklist'
 >;
+
+export type TaskFormData = Required<
+  Omit<TaskAttributes, '_id' | 'user' | 'labels' | 'createdAt' | 'updatedAt'>
+> & {
+  // Labels ids
+  labels: string[];
+};
