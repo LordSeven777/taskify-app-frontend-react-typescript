@@ -20,6 +20,7 @@ import {
   faTasks,
   faList,
   faSearch,
+  faCaretRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -43,7 +44,8 @@ library.add(
   faPen,
   faTasks,
   faList,
-  faSearch
+  faSearch,
+  faCaretRight
 );
 
 const IconsImports: FC<PropsWithChildren<{}>> = ({ children }) => {
