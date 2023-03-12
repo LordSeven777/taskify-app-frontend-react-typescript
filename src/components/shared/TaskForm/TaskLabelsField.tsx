@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { LabelAttributes } from '@customTypes/Label';
 
 // Components
-import LabelChip from './LabelChip';
+import LabelChip from '@components/shared/LabelChip';
 import SelectLabelsModal from './SelectLabelsModal';
 
 interface TaskLabelsFieldProps {

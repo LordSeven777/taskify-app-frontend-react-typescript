@@ -7,12 +7,12 @@ import App from '@/App';
 import ProtectedRoute from '@components/containers/ProtectedRoute';
 
 // Pages
-import HomePage from './Home/HomePage';
-import SignInPage from './SignIn/SignInPage';
-import RegisterPage from './Register/RegisterPage';
-import TasksPage from './Tasks/TasksPage';
-import LabelsPage from './Tasks/LabelsPage';
-import AddTaskPage from './Tasks/AddTaskPage';
+import HomePage from '@pages/Home/HomePage';
+import SignInPage from '@pages/SignIn/SignInPage';
+import RegisterPage from '@pages/Register/RegisterPage';
+import TasksPage from '@pages/Tasks/TasksPage';
+import LabelsPage from '@pages/Labels/LabelsPage';
+import AddTaskPage from '@pages/AddTask/AddTaskPage';
 
 const router = createBrowserRouter([
   {

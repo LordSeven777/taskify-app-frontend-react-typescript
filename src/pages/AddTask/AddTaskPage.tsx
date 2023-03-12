@@ -9,7 +9,7 @@ import { getStrictDateISO } from '@utils/dates';
 
 // Components
 import SubsectionNav from '@components/shared/SubsectionNav';
-import TaskForm from './TaskForm';
+import TaskForm from '../../components/shared/TaskForm/TaskForm';
 
 export default function AddTaskPage() {
   const navigate = useNavigate();

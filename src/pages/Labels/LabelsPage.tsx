@@ -22,7 +22,7 @@ import usePageTitle from '@hooks/usePageTitle';
 
 // Components
 import SubsectionNav from '@components/shared/SubsectionNav';
-import LabelChip from './LabelChip';
+import LabelChip from '@components/shared/LabelChip';
 import LabelFormModal from './LabelFormModal';
 import DeleteLabelModal from './DeleteLabelModal';
 

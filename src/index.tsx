@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
 // The router
-import router from '@pages/router';
+import router from '@/router';
 
 // Redux store
 import store from './store';
