@@ -11,7 +11,7 @@ import styled from 'styled-components';
 
 // Types
 import type { UserCreationAttributes } from '@customTypes/user';
-import type { FeedbackAttributes } from '@customTypes/feedback';
+import type { FeedbackAttributesWithoutId } from '@customTypes/feedback';
 import type { ApiValidationError } from '@customTypes/api';
 
 // Utils
@@ -38,8 +38,6 @@ import FloatingLabelField from '@components/shared/FloatingLabelField';
 
 // Illustration
 import { ReactComponent as IllustrationSVG } from '../../assets/images/undraw_login_re_4vu2.svg';
-
-type FeedbackPayload = Omit<FeedbackAttributes, 'id'>;
 
 const formInitialValues: UserCreationAttributes = {
   firstName: '',
@@ -81,7 +79,10 @@ export default function RegisterPage() {
 
   const [feedbackIsShown, showOrHideFeedback] = useState(false);
   const [feedback, setFeedback] = useReducer(
-    (feedback: FeedbackPayload, payload: Partial<FeedbackPayload>) => ({
+    (
+      feedback: FeedbackAttributesWithoutId,
+      payload: Partial<FeedbackAttributesWithoutId>
+    ) => ({
       ...feedback,
       ...payload,
     }),
@@ -107,7 +108,6 @@ export default function RegisterPage() {
   // Error handling
   useEffect(() => {
     if (error) {
-      console.log(error);
       const defaultError =
         'An unexpected error occured during the registration';
       let fbMessage: string;
