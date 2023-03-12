@@ -9,6 +9,8 @@ export interface FeedbackAttributes {
   redirectTo?: string;
 }
 
+export type FeedbackAttributesWithoutId = Omit<FeedbackAttributes, 'id'>;
+
 export type FeedbackCreationAttributes = Partial<FeedbackAttributes> &
   Pick<FeedbackAttributes, 'message' | 'title'>;
 
