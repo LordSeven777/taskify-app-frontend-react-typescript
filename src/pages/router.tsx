@@ -12,6 +12,7 @@ import SignInPage from './SignIn/SignInPage';
 import RegisterPage from './Register/RegisterPage';
 import TasksPage from './Tasks/TasksPage';
 import LabelsPage from './Tasks/LabelsPage';
+import AddTaskPage from './Tasks/AddTaskPage';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
           {
             path: 'labels',
             element: <LabelsPage />,
+          },
+          {
+            path: 'new-task',
+            element: <AddTaskPage />,
           },
         ],
       },
