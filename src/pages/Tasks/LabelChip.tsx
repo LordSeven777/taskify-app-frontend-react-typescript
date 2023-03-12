@@ -7,6 +7,7 @@ import type { LabelAttributes } from '@customTypes/Label';
 
 interface LabelChipProps extends React.HTMLAttributes<HTMLDivElement> {
   label: LabelAttributes;
+  disabled?: boolean;
   onEdit?: (id: string) => void;
   onDelete?: (id: string) => void;
 }
@@ -16,6 +17,7 @@ export default function LabelChip({
   onEdit,
   onDelete,
   className,
+  disabled = false,
   ...props
 }: LabelChipProps) {
   let _className = 'd-flex align-items-center';
@@ -33,6 +35,7 @@ export default function LabelChip({
       <ChipDelete
         className="btn btn-sm text-danger ms-1"
         title="Delete"
+        disabled={disabled}
         onClick={() => onDelete && onDelete(label._id)}
       >
         <FontAwesomeIcon icon="times" />

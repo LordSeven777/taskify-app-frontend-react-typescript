@@ -8,6 +8,7 @@ import styled from 'styled-components';
 interface TaskCheckListFieldProps {
   read?: boolean;
   items: string[];
+  disabled?: boolean;
   onItemsChange(items: string[]): void;
 }
 
@@ -16,6 +17,7 @@ type CheckListItemModalAction = 'add' | 'update' | null;
 export default function TaskCheckListField({
   read = false,
   items,
+  disabled = false,
   onItemsChange,
 }: TaskCheckListFieldProps) {
   const [showModal, setShowModal] = useState(false);
@@ -85,6 +87,7 @@ export default function TaskCheckListField({
                       variant="secondary"
                       size="sm"
                       title="Edit"
+                      disabled={disabled}
                       className="me-2"
                       onClick={() => handleModalOpen('update', item)}
                     >
@@ -94,6 +97,7 @@ export default function TaskCheckListField({
                       variant="danger"
                       size="sm"
                       title="Delete"
+                      disabled={disabled}
                       onClick={() => handleItemDelete(item)}
                     >
                       <FontAwesomeIcon icon="trash" />
@@ -112,6 +116,7 @@ export default function TaskCheckListField({
         <Button
           variant="primary"
           size="sm"
+          disabled={disabled}
           onClick={() => handleModalOpen('add')}
         >
           <FontAwesomeIcon icon="plus" className="me-2" />

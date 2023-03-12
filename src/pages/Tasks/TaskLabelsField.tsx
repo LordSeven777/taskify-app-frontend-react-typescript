@@ -12,12 +12,14 @@ import SelectLabelsModal from './SelectLabelsModal';
 interface TaskLabelsFieldProps {
   read: boolean;
   labels: LabelAttributes[];
+  disabled?: boolean;
   onSelectedChange: (ids: string[]) => void;
 }
 
 export default function TaskLabelsField({
   read,
   labels,
+  disabled = false,
   onSelectedChange,
 }: TaskLabelsFieldProps) {
   const [selectedLabels, setSelectedLabels] = useState(labels);
@@ -44,7 +46,11 @@ export default function TaskLabelsField({
           {selectedLabels.map((label) => (
             <li key={label._id} className="me-2 mb-2">
               {!read ? (
-                <LabelChip label={label} onDelete={handleLabelUnselected} />
+                <LabelChip
+                  label={label}
+                  disabled={disabled}
+                  onDelete={handleLabelUnselected}
+                />
               ) : (
                 <span
                   className="badge"
@@ -61,7 +67,12 @@ export default function TaskLabelsField({
         <p className="text-secondary fst-italic">No selected labels</p>
       )}
       {!read && (
-        <Button size="sm" variant="primary" onClick={() => setShowModal(true)}>
+        <Button
+          size="sm"
+          variant="primary"
+          disabled={disabled}
+          onClick={() => setShowModal(true)}
+        >
           <FontAwesomeIcon icon="list" className="me-2" />
           Select labels
         </Button>
