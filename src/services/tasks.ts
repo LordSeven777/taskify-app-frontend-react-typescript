@@ -24,10 +24,11 @@ const tasksService = api.injectEndpoints({
         },
       }),
       providesTags: (tasks = []) => [
-        ...tasks.map((t) => ({ type: 'Tasks' as const, id: t._id }), {
-          type: 'Tasks',
+        {
+          type: 'Tasks' as const,
           id: 'PARTIAL-LIST',
-        }),
+        },
+        ...tasks.map((t) => ({ type: 'Tasks' as const, id: t._id })),
       ],
     }),
     addTask: build.mutation<TaskAttributes, TaskFormData>({
@@ -63,7 +64,7 @@ const tasksService = api.injectEndpoints({
       { id: string; isCompleted: boolean }
     >({
       query: ({ id, isCompleted }) => ({
-        url: `tasks/${id}`,
+        url: `tasks/${id}/isCompleted`,
         method: 'PATCH',
         body: {
           isCompleted,
@@ -73,6 +74,18 @@ const tasksService = api.injectEndpoints({
         const partialListTag = { type: 'Tasks' as const, id: 'PARTIAL-LIST' };
         return updatedTask
           ? [partialListTag, { type: 'Tasks', id: updatedTask._id }]
+          : [partialListTag];
+      },
+    }),
+    deleteTask: build.mutation<TaskAttributes, string>({
+      query: (id) => ({
+        url: `tasks/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: (deletedTask) => {
+        const partialListTag = { type: 'Tasks' as const, id: 'PARTIAL-LIST' };
+        return deletedTask
+          ? [partialListTag, { type: 'Tasks', id: deletedTask._id }]
           : [partialListTag];
       },
     }),
@@ -86,4 +99,5 @@ export const {
   useAddTaskMutation,
   useUpdateTaskMutation,
   useUpdateTaskCompletionMutation,
+  useDeleteTaskMutation,
 } = tasksService;
