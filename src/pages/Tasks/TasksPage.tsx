@@ -26,8 +26,9 @@ import { useGetLabelsQuery } from '@services/labels';
 import usePageTitle from '@hooks/usePageTitle';
 
 // Components
-import TaskListItem from './TaskListItem';
 import RoundRectLoader from '@components/shared/RoundRectLoader';
+import DeleteTaskModal from '@components/shared/DeleteTaskModal';
+import TaskListItem from './TaskListItem';
 
 // Query params keys
 const DATE_QUERY = 'date';
@@ -74,6 +75,7 @@ export default function TasksPage() {
     return apiTasks ? apiTasks.length : 0;
   }, [apiTasks]);
 
+  // FILTER: Only show uncompleted tasks
   const [onlyUncompleted, setOnlyUncompleted] = useState(false);
 
   // The tasks to display depend on whether the only uncompleted filter is applied
@@ -85,7 +87,21 @@ export default function TasksPage() {
     }
   }, [apiTasks, onlyUncompleted]);
 
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [taskToDelete, setTaskToDelete] =
+    useState<PartialTaskAttributes | null>(null);
+
   usePageTitle('Tasks');
+
+  function handleTaskDelete(task: PartialTaskAttributes) {
+    setTaskToDelete(task);
+    setShowDeleteModal(true);
+  }
+
+  function handleDeleteModalClose() {
+    setShowDeleteModal(false);
+    setTaskToDelete(null);
+  }
 
   return (
     <PageWrapper>
@@ -186,7 +202,13 @@ export default function TasksPage() {
           {!isFetching && tasks && (
             <>
               {tasksCount > 0 ? (
-                tasks.map((task) => <TaskListItem key={task._id} task={task} />)
+                tasks.map((task) => (
+                  <TaskListItem
+                    key={task._id}
+                    task={task}
+                    onDelete={(task) => handleTaskDelete(task)}
+                  />
+                ))
               ) : (
                 <tr>
                   <td colSpan={6} className="text-center">
@@ -198,6 +220,11 @@ export default function TasksPage() {
           )}
         </tbody>
       </Table>
+      <DeleteTaskModal
+        show={showDeleteModal}
+        task={taskToDelete}
+        onClose={handleDeleteModalClose}
+      />
     </PageWrapper>
   );
 }

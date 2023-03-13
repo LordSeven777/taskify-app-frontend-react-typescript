@@ -11,13 +11,27 @@ import type { PartialTaskAttributes } from '@customTypes/Task';
 // Utils
 import { getStrictDateISO, getHourAndMinutes } from '@utils/dates';
 
+// Services
+import { useUpdateTaskCompletionMutation } from '@services/tasks';
+
 interface TaskListItemProps {
   task: PartialTaskAttributes;
+  onDelete?: (task: PartialTaskAttributes) => void;
 }
 
-export default function TaskListItem({ task }: TaskListItemProps) {
+export default function TaskListItem({ task, onDelete }: TaskListItemProps) {
+  const [updateTaskCompletion, { isLoading: isUpdatingTaskCompletion }] =
+    useUpdateTaskCompletionMutation();
+
   const startDate = useMemo(() => new Date(task.startsAt), [task.startsAt]);
   const finishDate = useMemo(() => new Date(task.endsAt), [task.endsAt]);
+
+  function handleTaskCompletionToggle() {
+    updateTaskCompletion({
+      id: task._id,
+      isCompleted: !task.isCompleted,
+    });
+  }
 
   return (
     <Row>
@@ -47,8 +61,9 @@ export default function TaskListItem({ task }: TaskListItemProps) {
       <td className="text-center">
         <Switch
           checked={task.isCompleted}
+          disabled={isUpdatingTaskCompletion}
           title={task.isCompleted ? 'Completed' : 'Uncompleted'}
-          onChange={() => {}}
+          onChange={handleTaskCompletionToggle}
         />
       </td>
       <td>
@@ -61,6 +76,9 @@ export default function TaskListItem({ task }: TaskListItemProps) {
             {label.name}
           </span>
         ))}
+        {task.labels.length === 0 && (
+          <p className="text-secondary fst-italic text-center">No labels</p>
+        )}
       </td>
       <td>
         <div className="d-flex justify-content-center align-items-start">
@@ -78,7 +96,11 @@ export default function TaskListItem({ task }: TaskListItemProps) {
           >
             <FontAwesomeIcon icon="pen" />
           </Link>
-          <Button variant="danger" title="Delete">
+          <Button
+            variant="danger"
+            title="Delete"
+            onClick={() => onDelete && onDelete(task)}
+          >
             <FontAwesomeIcon icon="trash" />
           </Button>
         </div>
