@@ -1,15 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { RouterProvider } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+
+// The router
+import router from '@/router';
+
+// Redux store
+import store from './store';
+
+// Components
+import IconsImports from '@components/containers/IconsImports';
+import InitialAuthentication from '@components/containers/InitialAuthentication';
+import InitialLoader from '@components/parts/InitialLoader';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <IconsImports>
+        <InitialAuthentication>
+          {(isDone: boolean) =>
+            isDone ? <RouterProvider router={router} /> : <InitialLoader />
+          }
+        </InitialAuthentication>
+      </IconsImports>
+    </Provider>
   </React.StrictMode>
 );
 
