@@ -1,9 +1,14 @@
-# Getting Started with Create React App
+# Taskify
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This is an application that helps you manage your tasks. You just have to register or sign in and then record your tasks into the app.
+
+## Live URL
+The deployed application is live at the following URL: https://tool-taskify-react.netlify.app/
 
 ## Available Scripts
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 In the project directory, you can run:
 
 ### `npm start`
